@@ -1,12 +1,15 @@
 import React from "react";
+import yeshteryLogo from "../../../public/Images/urn_aaid_sc_US_2186e175-b022-45db-a2f4-c9ba6e4bde30.png";
+import burgerIcon from "../../../public/Images/urn_aaid_sc_US_2186e175-b022-45db-a2f4-c9ba6e4bde30 (1).png";
 
 export default function Navbar() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            Navbar
+      <nav className="navbar navbar-expand-lg">
+        <div className="container">
+          <a className="navbar-brand " href="#">
+            <img src={burgerIcon} alt="burgerIcon" className="me-4" />
+            <img src={yeshteryLogo} alt=" yeshtery logo" />
           </a>
           <button
             className="navbar-toggler"
@@ -20,51 +23,31 @@ export default function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <div className="navbar-nav mx-auto d-flex justify-content-center aligin-items-center w-50">
+              <i className="fa-solid fa-chevron-left me-2 mt-1"></i>
+              <span>
+                valentie's day offers! Buy to get One free{" "}
+                <span className="fw-bold">Shop Now</span>
+              </span>
+              <i className="fa-solid fa-chevron-right ms-2 mt-1"></i>
+            </div>
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  Home
+                <a className="nav-link" href="#">
+                  <i className="fa-solid fa-phone text-black me-2"></i>
+                  Contact Us
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
-                  Link
+                  <i className="fa-regular fa-heart text-black me-2 "></i>
+                  Track Order
                 </a>
-              </li>
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Dropdown
-                </a>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Another action
-                    </a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Something else here
-                    </a>
-                  </li>
-                </ul>
               </li>
               <li className="nav-item">
-                <a className="nav-link disabled" aria-disabled="true">
-                  Disabled
+                <a className="nav-link" href="#">
+                  <i className="fa-solid fa-location-dot text-black me-2"></i>
+                  Find A Store
                 </a>
               </li>
             </ul>

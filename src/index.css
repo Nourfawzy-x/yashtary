@@ -1,8 +1,33 @@
 :root {
   --primary-color: #fff200;
   --seconadry-color: #542e90;
-  --body-color: #ffffff;
+  --textFooter-color: #ffffff;
   --text-color: #1d1d1b;
-  --star-color: #e09b00;
-  --nav-color: #fff100;
+  --star-color: #ffb900;
+  --nav-bg: #fff100;
+  --footer-bg: #3c3c3b;
+}
+nav {
+  background-color: var(--nav-bg);
+}
+footer {
+  background-color: var(--footer-bg);
+  color: var(--textFooter-color);
+}
+footer button {
+  background-color: var(--primary-color) !important;
+  color: var(--text-color);
+}
+ul {
+  list-style-type: none;
+}
+.fa-star {
+  color: var(--star-color);
+}
+#similarProducts h3 {
+  color: var(--seconadry-color);
+}
+#similarProducts p {
+  color: #575756;
+  opacity: 1;
 }
