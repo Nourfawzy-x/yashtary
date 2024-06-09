@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import ProductDetails from "../../Pages/ProductDetails/ProductDetails";
 
 export default function Product() {
-  const [cartItem, useCartItem] = useState();
   let { isLoading, data } = useQuery("products", getProducts);
 
   return (

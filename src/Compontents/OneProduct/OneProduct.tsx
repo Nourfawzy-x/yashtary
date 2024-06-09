@@ -3,11 +3,13 @@ import React, { useState, useEffect } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import adidas from "/Images/urn_aaid_sc_US_2186e175-b022-45db-a2f4-c9ba6e4bde30 (3).png";
-
+interface Photo {
+  url: string;
+}
 interface Product {
   id: number;
   name: string;
-  photos: string[];
+  photos: Photo[];
   description: string;
   category: string;
   price: string; // Keep price as string initially to match API response
@@ -49,7 +51,6 @@ export default function OneProduct() {
       setCartItems([...cartItems, { ...product, qty: 1 }]);
     }
   };
-
   const onRemoveFromCart = (product: Product) => {
     const exist = cartItems.find((x) => x.id === product.id);
     if (exist && exist.qty === 1) {
@@ -62,12 +63,12 @@ export default function OneProduct() {
       );
     }
   };
-
   const getOneProduct = async (id: string) => {
     const response = await axios.get(`http://localhost:3000/products/${id}`);
+    console.log(response.data.detailPhotos[0]);
+
     return response.data;
   };
-
   const { data, isLoading, error } = useQuery(["oneProduct", id], () =>
     getOneProduct(id)
   );
@@ -79,11 +80,9 @@ export default function OneProduct() {
       </div>
     );
   }
-
   if (error) {
     return <div>Error loading product</div>;
   }
-
   return (
     <>
       {data ? (
@@ -91,7 +90,8 @@ export default function OneProduct() {
           <div className="row">
             <div className="col-md-6">
               <div className="image-product">
-                <img src={data.photos[0]} alt={data.name} className="w-100" />
+                <img src={data.photos} className="w-100" />
+
                 <p>{data.name}</p>
               </div>
             </div>

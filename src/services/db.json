@@ -7,9 +7,9 @@
       "price": "999.99EGP",
       "category": "Electronics",
       "stock": 50,
-      "photos": ["src/images/GC6369_00_plp_laydown.avif"],
+      "photos": ["src/images/H39907_23_hover_model.avif"],
       "detailPhotos": [
-        "https://example.com/images/laptop_detail1.jpg",
+        "src/images/GC6369_00_plp_laydown.avif",
         "https://example.com/images/laptop_detail2.jpg"
       ]
     },
@@ -22,7 +22,7 @@
       "stock": 150,
       "photos": ["src/images/H18489_000_plp_model.avif"],
       "detailPhotos": [
-        "https://example.com/images/smartphone_detail1.jpg",
+        "src/images/H18489_000_plp_model.avif",
         "https://example.com/images/smartphone_detail2.jpg"
       ]
     },
