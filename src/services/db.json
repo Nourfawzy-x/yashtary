@@ -1,0 +1,82 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Laptop",
+      "description": "A high-performance laptop suitable for all your computing needs.",
+      "price": "999.99EGP",
+      "category": "Electronics",
+      "stock": 50,
+      "photos": ["src/images/GC6369_00_plp_laydown.avif"],
+      "detailPhotos": [
+        "https://example.com/images/laptop_detail1.jpg",
+        "https://example.com/images/laptop_detail2.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Smartphone",
+      "description": "A latest generation smartphone with all the newest features.",
+      "price": "699.99EGP",
+      "category": "Electronics",
+      "stock": 150,
+      "photos": ["src/images/H18489_000_plp_model.avif"],
+      "detailPhotos": [
+        "https://example.com/images/smartphone_detail1.jpg",
+        "https://example.com/images/smartphone_detail2.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Wireless Headphones",
+      "description": "Comfortable wireless headphones with superior sound quality.",
+      "price": "199.99EGP",
+      "category": "Accessories",
+      "stock": 200,
+      "photos": ["src/images/H39907_23_hover_model.avif"],
+      "detailPhotos": [
+        "https://example.com/images/headphones_detail1.jpg",
+        "https://example.com/images/headphones_detail2.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Coffee Maker",
+      "description": "Brew the perfect cup of coffee with this easy-to-use coffee maker.",
+      "price": "89.99 EGP",
+      "category": "Home Appliances",
+      "stock": 75,
+      "photos": ["src/images/H58591_01_laydown.avif"],
+      "detailPhotos": [
+        "https://example.com/images/coffeemaker_detail1.jpg",
+        "https://example.com/images/coffeemaker_detail2.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Running Shoes",
+      "description": "Durable and comfortable running shoes for all terrains.",
+      "price": 89.99,
+      "category": "Footwear",
+      "stock": 120,
+      "photos": ["src/images/HM4045_23_hover_model.avif"],
+      "detailPhotos": [
+        "https://example.com/images/runningshoes_detail1.jpg",
+        "https://example.com/images/runningshoes_detail2.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Running Shoes",
+      "description": "Durable and comfortable running shoes for all terrains.",
+      "price": "89.99 EGP",
+      "category": "Footwear",
+      "stock": 120,
+      "photos": ["src/images/IA4785_000_plp_model.avif"],
+      "detailPhotos": [
+        "https://example.com/images/runningshoes_detail1.jpg",
+        "https://example.com/images/runningshoes_detail2.jpg"
+      ]
+    }
+  ]
+}

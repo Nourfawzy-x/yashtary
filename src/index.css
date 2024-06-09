@@ -31,3 +31,14 @@ ul {
   color: #575756;
   opacity: 1;
 }
+a,
+a:hover {
+  color: var(--text-color) !important;
+  text-decoration: none !important;
+}
+.btn1 {
+  background-color: var(--seconadry-color) !important;
+}
+.btn2 {
+  background-color: var(--primary-color) !important;
+}

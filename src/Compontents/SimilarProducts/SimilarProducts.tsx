@@ -1,9 +1,9 @@
 import React from "react";
-import firstImage from "../../../public/Images/Group 575.png";
-import secondImage from "../../../public/Images/Group 583.png";
-import thirdImage from "../../../public/Images/Group 589.png";
-import forthImage from "../../../public/Images/Group 597.png";
-import adidas from "../../../public/Images/urn_aaid_sc_US_2186e175-b022-45db-a2f4-c9ba6e4bde30 (3).png";
+import firstImage from "/Images/Group 575.png";
+import secondImage from "/Images/Group 583.png";
+import thirdImage from "/Images/Group 589.png";
+import forthImage from "/Images/Group 597.png";
+import adidas from "/Images/urn_aaid_sc_US_2186e175-b022-45db-a2f4-c9ba6e4bde30 (3).png";
 
 export default function SimilarPrducts() {
   return (
