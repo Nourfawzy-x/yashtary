@@ -1,0 +1,28 @@
+$main-padding: 8px;
+$nav-bg: #fff100;
+
+.span {
+  @media (max-width: 1030px) {
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+}
+.icon_nav {
+  @media (max-width: 920px) {
+    text-align: center;
+  }
+}
+.navbar_item {
+  @media (max-width: 1030px) {
+    padding-top: $main-padding !important;
+  }
+}
+.navbarId {
+  box-shadow: 0px 0.73px 2px #00000080;
+  @media (max-width: 920px) {
+    width: 100% !important;
+  }
+}
+nav {
+  background-color: $nav-bg;
+}

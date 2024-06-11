@@ -1,0 +1,10 @@
+$filteration-bg: #000000;
+$textFooter-color: #ffffff;
+.filteration {
+  background-color: $filteration-bg;
+  color: $textFooter-color;
+  @media (max-width: 912px) {
+    opacity: 0 !important;
+    height: 0 !important;
+  }
+}

@@ -1,0 +1,44 @@
+$primary-color: #fff200;
+$seconadry-color: #542e90;
+$textFooter-color: #ffffff;
+$text-color: #1d1d1b;
+$star-color: #ffb900;
+$nav-bg: #fff100;
+$footer-bg: #3c3c3b;
+$filteration-bg: #000000;
+footer {
+  background-color: $footer-bg;
+  color: $textFooter-color;
+}
+footer button {
+  background-color: $primary-color !important;
+  color: $text-color;
+}
+ul {
+  list-style-type: none;
+}
+.fa-star {
+  color: $star-color;
+}
+#similarProducts h3 {
+  color: $seconadry-color;
+}
+#similarProducts p {
+  color: #575756;
+  opacity: 1;
+}
+a,
+a:hover {
+  color: $text-color !important;
+  text-decoration: none !important;
+}
+.btn1 {
+  background-color: $seconadry-color !important;
+}
+.btn2 {
+  background-color: $primary-color !important;
+}
+.filteration {
+  background-color: $filteration-bg;
+  color: $textFooter-color;
+}
