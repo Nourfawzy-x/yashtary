@@ -1,10 +1,24 @@
 $filteration-bg: #000000;
 $textFooter-color: #ffffff;
+
 .filteration {
   background-color: $filteration-bg;
   color: $textFooter-color;
+
   @media (max-width: 912px) {
     opacity: 0 !important;
     height: 0 !important;
+    overflow: hidden; // To ensure content does not show
+  }
+}
+
+.mobile_filteration {
+  opacity: 0 !important;
+  height: 0 !important;
+  overflow: hidden; // To ensure content does not show
+
+  @media (max-width: 912px) {
+    opacity: 1 !important;
+    height: auto !important; // Adjust height as needed, `auto` will allow the content to dictate the height
   }
 }

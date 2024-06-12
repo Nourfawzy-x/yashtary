@@ -42,3 +42,6 @@ a:hover {
   background-color: $filteration-bg;
   color: $textFooter-color;
 }
+.dropdown-toggle::after {
+  opacity: 0 !important;
+}
