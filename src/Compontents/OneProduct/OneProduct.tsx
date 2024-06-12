@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import adidas from "/Images/urn_aaid_sc_US_2186e175-b022-45db-a2f4-c9ba6e4bde30 (3).png";
+import style from "./OneProduct.module.scss";
 interface Photo {
   url: string;
 }
@@ -12,32 +13,40 @@ interface Product {
   photos: Photo[];
   description: string;
   category: string;
-  price: string; // Keep price as string initially to match API response
+  price: number;
   qty: number;
+  Rate: number;
+  PeopleRated: number;
 }
-
 export default function OneProduct() {
   const [cartItems, setCartItems] = useState<Product[]>([]);
+  const [counter, setCounter] = useState(0);
   let { id } = useParams<{ id: string }>();
 
+  const increment = () => {
+    setCounter((counter) => counter + 1);
+  };
+  const decrement = () => {
+    setCounter((counter) => counter - 1);
+  };
   useEffect(() => {
     console.log(cartItems);
   }, [cartItems]);
 
-  const parsePrice = (price: string): number => {
-    const numericPrice = parseFloat(price.replace(/[^\d.-]/g, ""));
-    return isNaN(numericPrice) ? 0 : numericPrice;
-  };
+  // const parsePrice = (price: string): number => {
+  //   const numericPrice = parseFloat(price.replace(/[^\d.-]/g, ""));
+  //   return isNaN(numericPrice) ? 0 : numericPrice;
+  // };
 
-  const itemsPrice = cartItems.reduce((a, c) => {
-    const parsedPrice = parsePrice(c.price);
-    console.log(`Price: ${parsedPrice}, Qty: ${c.qty}`);
-    return a + parsedPrice * c.qty;
-  }, 0);
-  console.log(`Items Price: ${itemsPrice}`);
-  const shippingPrice = 50;
-  const totalPrice = itemsPrice + shippingPrice;
-  console.log(`Total Price: ${totalPrice}`);
+  // const itemsPrice = cartItems.reduce((a, c) => {
+  //   const parsedPrice = parsePrice(c.price);
+  //   console.log(`Price: ${parsedPrice}, Qty: ${c.qty}`);
+  //   return a + parsedPrice * c.qty;
+  // }, 0);
+  // console.log(`Items Price: ${price}`);
+  // const shippingPrice = 50;
+  // const totalPrice = itemsPrice + shippingPrice;
+  // console.log(`Total Price: ${totalPrice}`);
 
   const onAddToCart = (product: Product) => {
     const exist = cartItems.find((x) => x.id === product.id);
@@ -65,7 +74,7 @@ export default function OneProduct() {
   };
   const getOneProduct = async (id: string) => {
     const response = await axios.get(`http://localhost:3000/products/${id}`);
-    console.log(response.data.detailPhotos[0]);
+    console.log(response.data.photos[0]);
 
     return response.data;
   };
@@ -90,38 +99,89 @@ export default function OneProduct() {
           <div className="row">
             <div className="col-md-6">
               <div className="image-product">
-                <img src={data.photos} className="w-100" />
+                <img src={data.photos[0]} className="w-100" />
 
                 <p>{data.name}</p>
               </div>
             </div>
             <div className="col-md-6">
-              <div className="product-info">
-                <img src={adidas} alt="logo" />
-                <p>{data.description}</p>
-                <p>{data.category}</p>
-                <p>{data.price}</p>
-                <p>size</p>
+              <div className="product-info mt-3">
+                <img src={adidas} alt="logo" className="my-3" />
+                <p className={`fw-semibold ${style.description}`}>
+                  {data.description}
+                </p>
+                <p className="text-muted fw-semibold">{data.category}</p>
                 <div className="d-flex">
-                  <div className="p-3 border-1 bg-secondary rounded-circle border-black mx-2">
-                    small
+                  <div className="text-center my-2 pe-3">
+                    <i className="fa-solid fa-star me-1"></i>
+                    <i className="fa-solid fa-star me-1"></i>
+                    <i className="fa-solid fa-star me-1"></i>
+                    <i className="fa-solid fa-star me-1"></i>
+                    <i className="fa-regular fa-star me-1"></i>
                   </div>
-                  <div className="p-3 border-1 bg-secondary rounded-circle border-black mx-2">
-                    medium
+                  <div className="fw-semibold my-2 pe-3">{data.Rate} of 5</div>
+                  <div
+                    className={`fw-semibold text-muted my-2 ${style.peopleRated}`}
+                  >
+                    {data.PeopleRated} Rated
                   </div>
-                  <div className="p-3 border-1 bg-secondary rounded-circle border-black mx-2">
-                    Large
+                </div>
+                <div className="d-flex my-1">
+                  <div className={`text-center my-1 pe-3 ${style.price}`}>
+                    {data.price} LE
                   </div>
-                  <div className="p-3 border-1 bg-secondary rounded-circle border-black mx-2">
-                    X Large
+                  <div
+                    className={`fw-semibold my-2 pe-4 text-decoration-line-through ${style.priceBeforeSale}`}
+                  >
+                    {data.priceBeforeSale} LE
                   </div>
-                  <div className="p-3 border-1 bg-secondary rounded-circle border-black mx-2">
-                    XX Large
+                  <div className={` my-1 `}>
+                    <button className={`btn  fw-semibold ${style.button}`}>
+                      30% off
+                    </button>
                   </div>
+                </div>
+                <div className="fw-bold fs-3">size</div>
+                <div className="d-flex mt-3 mb-4">
+                  <div className={`${style.sizes} me-2`}>small</div>
+                  <div className={`${style.sizes} mx-2`}>medium</div>
+                  <div className={`${style.sizes} mx-2`}>Large</div>
+                  <div className={`${style.sizes} mx-2`}>X Large</div>
+                  <div className={`${style.sizes} mx-2`}>XX Large</div>
+                </div>
+                <div className="fw-bold fs-3">color</div>
+                <div className="d-flex mt-3 mb-4">
+                  <div className={`${style.sizes} me-2`}>small</div>
+                  <div className={`${style.sizes} mx-2`}>medium</div>
+                </div>
+                <div className="fw-bold fs-3">Quantity</div>
+                <div
+                  className={`${style.inline_flex_container}  rounded-5 p-1 my-3`}
+                >
+                  <button
+                    id="decrement"
+                    onClick={decrement}
+                    className={` rounded-circle px-3 py-2 fw-semibold border-0 ${style.button}`}
+                  >
+                    -
+                  </button>
+                  <input
+                    type="number"
+                    id="input"
+                    value={counter}
+                    className={`text-center border-0 ${style.input}`}
+                  />
+                  <button
+                    id="increment"
+                    onClick={increment}
+                    className={` rounded-circle px-3 py-2 fw-semibold border-0 ${style.button}`}
+                  >
+                    +
+                  </button>
                 </div>
                 <div className="my-2">
                   <button
-                    className="btn btn1 mx-3 text-white"
+                    className="btn btn1 me-4 text-white rounded-pill px-5 fw-semibold "
                     type="button"
                     data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasWithBothOptions"
@@ -159,7 +219,7 @@ export default function OneProduct() {
                             />
                             <p>{item.name}</p>
                             <p>
-                              {item.qty} x {parsePrice(item.price)} EGP
+                              {item.qty} x {item.price} EGP
                             </p>
                             <button onClick={() => onAddToCart(item)}>+</button>
                             <button onClick={() => onRemoveFromCart(item)}>
@@ -170,13 +230,13 @@ export default function OneProduct() {
                         {cartItems.length !== 0 && (
                           <div className="row">
                             <div>Total Price</div>
-                            <div>{totalPrice} EGP</div>
+                            {/* <div>{totalPrice} EGP</div> */}
                           </div>
                         )}
                       </div>
                     </div>
                   </div>
-                  <button className="btn px-4 btn2 text-black">
+                  <button className="btn px-4 btn2 text-black rounded-pill px-4 fw-semibold my-3">
                     pick from store
                   </button>
                 </div>

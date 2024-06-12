@@ -77,8 +77,8 @@ export default function ProductDetails() {
       </header>
       <Filteration />
 
-      {/* <OneProduct />
-      <SimilarPrducts /> */}
+      <OneProduct />
+      {/* <SimilarPrducts />  */}
     </>
   );
 }

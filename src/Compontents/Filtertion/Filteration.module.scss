@@ -1,6 +1,6 @@
 $filteration-bg: #000000;
 $textFooter-color: #ffffff;
-
+$hover-color: #f11133;
 .filteration {
   background-color: $filteration-bg;
   color: $textFooter-color;
@@ -8,17 +8,24 @@ $textFooter-color: #ffffff;
   @media (max-width: 912px) {
     opacity: 0 !important;
     height: 0 !important;
-    overflow: hidden; // To ensure content does not show
+    overflow: hidden;
   }
 }
 
 .mobile_filteration {
   opacity: 0 !important;
   height: 0 !important;
-  overflow: hidden; // To ensure content does not show
+  overflow: hidden;
 
   @media (max-width: 912px) {
     opacity: 1 !important;
-    height: auto !important; // Adjust height as needed, `auto` will allow the content to dictate the height
+    height: auto !important;
+  }
+}
+.category {
+  transition: all 1s;
+
+  &:hover {
+    color: $hover-color;
   }
 }

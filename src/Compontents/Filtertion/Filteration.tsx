@@ -7,13 +7,27 @@ export default function Filteration() {
       <div className={` py-0 ${style.filteration}`}>
         <div className="container py-3">
           <div className="row">
-            <div className="col text-center fw-semibold">Men</div>
-            <div className="col text-center fw-semibold">Women</div>
-            <div className="col text-center fw-semibold">Unisex</div>
-            <div className="col text-center fw-semibold">Kids</div>
-            <div className="col text-center fw-semibold">Best seller</div>
-            <div className="col text-center fw-semibold">New Arrivals</div>
-            <div className="col text-center fw-semibold">Offers</div>
+            <div className={`col text-center fw-semibold ${style.category}`}>
+              Men
+            </div>
+            <div className={`col text-center fw-semibold ${style.category}`}>
+              Women
+            </div>
+            <div className={`col text-center fw-semibold ${style.category}`}>
+              Unisex
+            </div>
+            <div className={`col text-center fw-semibold ${style.category}`}>
+              Kids
+            </div>
+            <div className={`col text-center fw-semibold ${style.category}`}>
+              Best seller
+            </div>
+            <div className={`col text-center fw-semibold ${style.category}`}>
+              New Arrivals
+            </div>
+            <div className={`col text-center fw-semibold ${style.category}`}>
+              Offers
+            </div>
           </div>
         </div>
       </div>
