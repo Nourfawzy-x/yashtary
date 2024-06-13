@@ -1,53 +1,50 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import adidas from "/Images/urn_aaid_sc_US_2186e175-b022-45db-a2f4-c9ba6e4bde30 (3).png";
 import style from "./OneProduct.module.scss";
-interface Photo {
-  url: string;
-}
+import { getOneProduct } from "../../services/ProductsService";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { useState } from "react";
+import React from "react";
+import Slider from "react-slick";
 interface Product {
   id: number;
   name: string;
-  photos: Photo[];
+  photos: any;
   description: string;
   category: string;
   price: number;
   qty: number;
   Rate: number;
   PeopleRated: number;
+  photoArray: [];
 }
+
 export default function OneProduct() {
   const [cartItems, setCartItems] = useState<Product[]>([]);
   const [counter, setCounter] = useState(0);
-  let { id } = useParams<{ id: string }>();
-
+  let { id } = useParams();
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+  };
+  const { data, isLoading, error } = useQuery(
+    ["oneProduct", id],
+    () => getOneProduct(id),
+    {
+      enabled: !!id,
+    }
+  );
   const increment = () => {
     setCounter((counter) => counter + 1);
   };
   const decrement = () => {
     setCounter((counter) => counter - 1);
   };
-  useEffect(() => {
-    console.log(cartItems);
-  }, [cartItems]);
-
-  // const parsePrice = (price: string): number => {
-  //   const numericPrice = parseFloat(price.replace(/[^\d.-]/g, ""));
-  //   return isNaN(numericPrice) ? 0 : numericPrice;
-  // };
-
-  // const itemsPrice = cartItems.reduce((a, c) => {
-  //   const parsedPrice = parsePrice(c.price);
-  //   console.log(`Price: ${parsedPrice}, Qty: ${c.qty}`);
-  //   return a + parsedPrice * c.qty;
-  // }, 0);
-  // console.log(`Items Price: ${price}`);
-  // const shippingPrice = 50;
-  // const totalPrice = itemsPrice + shippingPrice;
-  // console.log(`Total Price: ${totalPrice}`);
-
   const onAddToCart = (product: Product) => {
     const exist = cartItems.find((x) => x.id === product.id);
     if (exist) {
@@ -72,15 +69,6 @@ export default function OneProduct() {
       );
     }
   };
-  const getOneProduct = async (id: string) => {
-    const response = await axios.get(`http://localhost:3000/products/${id}`);
-    console.log(response.data.photos[0]);
-
-    return response.data;
-  };
-  const { data, isLoading, error } = useQuery(["oneProduct", id], () =>
-    getOneProduct(id)
-  );
 
   if (isLoading) {
     return (
@@ -99,17 +87,27 @@ export default function OneProduct() {
           <div className="row">
             <div className="col-md-6">
               <div className="image-product">
-                <img src={data.photos[0]} className="w-100" />
-
-                <p>{data.name}</p>
+                <img src={data.photosDetails} className="w-100" />
+              </div>
+              <div>
+                {
+                  <Slider {...settings}>
+                    {data?.photosArray.map((photos: any, index: number) => (
+                      <img
+                        src={photos}
+                        className="w-100 px-2 py-2"
+                        key={index}
+                        alt={`Photo ${index}`}
+                      />
+                    ))}
+                  </Slider>
+                }
               </div>
             </div>
             <div className="col-md-6">
               <div className="product-info mt-3">
                 <img src={adidas} alt="logo" className="my-3" />
-                <p className={`fw-semibold ${style.description}`}>
-                  {data.description}
-                </p>
+                <p className={`fw-semibold   ${style.name}`}>{data.name}</p>
                 <p className="text-muted fw-semibold">{data.category}</p>
                 <div className="d-flex">
                   <div className="text-center my-2 pe-3">

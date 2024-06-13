@@ -27,7 +27,7 @@ export default function Product() {
                   <div key={product.id} className="col-md-4">
                     <Link to={`/productDetails/${product.id}`}>
                       <div className="p-3">
-                        <img src={product.photos} className="w-100" />
+                        <img src={product.photos[0]} className="w-100" />
                         <span>man's fashion</span>
                         <p className="mt-2 mb-1">{product.name}</p>
                         <p className="text-danger">{product.price}</p>

@@ -1,8 +1,9 @@
 $text-color: #575756;
 $seconadry-color: #542e90;
 
-.description {
+.name {
   max-width: 80%;
+  text-transform: capitalize;
 }
 .PeopleRated {
   color: $text-color;
