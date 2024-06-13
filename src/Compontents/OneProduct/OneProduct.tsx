@@ -18,6 +18,7 @@ interface Product {
   qty: number;
   Rate: number;
   PeopleRated: number;
+  photosDetails: any;
   photoArray: [];
 }
 
@@ -25,6 +26,10 @@ export default function OneProduct() {
   const [cartItems, setCartItems] = useState<Product[]>([]);
   const [counter, setCounter] = useState(0);
   let { id } = useParams();
+  const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
+  const shippingPrice = 50;
+  const totalPrice = itemPrice + shippingPrice;
+  console.log(`Total Price: ${totalPrice}`);
   var settings = {
     dots: true,
     infinite: true,
@@ -196,7 +201,6 @@ export default function OneProduct() {
                     aria-labelledby="offcanvasWithBothOptionsLabel"
                   >
                     <div className="offcanvas-header">
-                      <h3>my Cart</h3>
                       <button
                         type="button"
                         className="btn-close"
@@ -204,21 +208,41 @@ export default function OneProduct() {
                         aria-label="Close"
                       ></button>
                     </div>
+                    <h3
+                      className={`text-center fw-bold ${style.canvas_header}`}
+                    >
+                      My Cart
+                    </h3>
                     <div className="offcanvas-body">
-                      <p>Cart Summary</p>
+                      <p className="fw-bold py-1">Cart Summary</p>
                       <div>
                         {cartItems.length === 0 && <div>cart is empty</div>}
                         {cartItems.map((item) => (
                           <div key={item.id}>
-                            <img
-                              src={item.photos[0]}
-                              alt={item.name}
-                              width="50"
-                            />
-                            <p>{item.name}</p>
-                            <p>
-                              {item.qty} x {item.price} EGP
-                            </p>
+                            <div className="d-flex align-items-center">
+                              <img
+                                src={item.photosDetails}
+                                alt={item.name}
+                                width="100"
+                              />
+                              <div>
+                                <p className="ps-4 fw-semibold fs-5">
+                                  {item.name}
+                                </p>
+                                <p className=" ps-4 text-muted fs-5 fw-semibold">
+                                  Quaninty:
+                                  <span className="text-black ps-1">
+                                    {item.qty}
+                                  </span>
+                                </p>
+                                <p
+                                  className={` ps-4 fs-5 fw-semibold ${style.price}`}
+                                >
+                                  {item.price} EGP
+                                </p>
+                              </div>
+                            </div>
+
                             <button onClick={() => onAddToCart(item)}>+</button>
                             <button onClick={() => onRemoveFromCart(item)}>
                               -
@@ -226,9 +250,11 @@ export default function OneProduct() {
                           </div>
                         ))}
                         {cartItems.length !== 0 && (
-                          <div className="row">
-                            <div>Total Price</div>
-                            {/* <div>{totalPrice} EGP</div> */}
+                          <div className="row ">
+                            <div className="fs-5 fw-bold text-center ">
+                              {" "}
+                              Total:{totalPrice} EGP
+                            </div>
                           </div>
                         )}
                       </div>
