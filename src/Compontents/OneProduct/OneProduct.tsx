@@ -112,7 +112,9 @@ export default function OneProduct() {
             <div className="col-md-6">
               <div className="product-info mt-3">
                 <img src={adidas} alt="logo" className="my-3" />
-                <p className={`fw-semibold   ${style.name}`}>{data.name}</p>
+                <p className={`fw-semibold  fs-5  ${style.name}`}>
+                  {data.name}
+                </p>
                 <p className="text-muted fw-semibold">{data.category}</p>
                 <div className="d-flex">
                   <div className="text-center my-2 pe-3">
@@ -226,7 +228,9 @@ export default function OneProduct() {
                                 width="100"
                               />
                               <div>
-                                <p className="ps-4 fw-semibold fs-5">
+                                <p
+                                  className={`ps-4  fw-semibold  fs-5  ${style.name}`}
+                                >
                                   {item.name}
                                 </p>
                                 <p className=" ps-4 text-muted fs-5 fw-semibold">
