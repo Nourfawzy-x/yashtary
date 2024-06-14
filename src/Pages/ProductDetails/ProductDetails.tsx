@@ -3,7 +3,7 @@ import SimilarProducts from "../../Compontents/SimilarProducts/SimilarProducts";
 import OneProduct from "../../Compontents/OneProduct/OneProduct";
 import Filteration from "../../Compontents/Filtertion/Filteration";
 import NavbarProductDetails from "../../Compontents/NavbarProductDetails/NavbarProductDetails";
-
+import style from "./ProductDetails.module.scss";
 interface Product {
   id: number;
   name: string;
@@ -17,7 +17,6 @@ interface Product {
   photosDetails: any;
   photoArray: [];
 }
-
 export default function ProductDetails() {
   const [cartItems, setCartItems] = useState<Product[]>([]);
 
@@ -51,6 +50,18 @@ export default function ProductDetails() {
     <>
       <NavbarProductDetails cartItems={cartItems} />
       <Filteration />
+      <div>
+        <div className={`container ${style.selection}`}>
+          <span className="fw-bold text-decoration-underline">Men </span> /{" "}
+          <span className="fw-bold text-decoration-underline">Clothing </span>/{" "}
+          <span className="fw-bold text-decoration-underline">Tops </span>/
+          <span className="fw-bold text-decoration-underline">Adidas </span>/{" "}
+          <span className="fw-bold text-decoration-underline">
+            Adidas Black T-Shirt{" "}
+          </span>
+        </div>
+      </div>
+      <hr />
       <OneProduct
         cartItems={cartItems}
         onAddToCart={onAddToCart}

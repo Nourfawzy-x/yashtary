@@ -45,6 +45,7 @@ export default function OneProduct({
   );
   const settings = {
     dots: true,
+    arrows: true,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
@@ -112,19 +113,21 @@ export default function OneProduct({
               <div className="image-product">
                 <img src={data.photosDetails} className="w-100" />
               </div>
-              <div>
-                {
-                  <Slider {...settings}>
-                    {data?.photosArray.map((photos: any, index: number) => (
-                      <img
-                        src={photos}
-                        className="w-100 px-2 py-2"
-                        key={index}
-                        alt={`Photo ${index}`}
-                      />
-                    ))}
-                  </Slider>
-                }
+              <div className="d-flex justify-content-center align-items-center">
+                <div className="w-75 py-2">
+                  {
+                    <Slider {...settings}>
+                      {data?.photosArray.map((photos: any, index: number) => (
+                        <img
+                          src={photos}
+                          className="px-1"
+                          key={index}
+                          alt={`Photo ${index}`}
+                        />
+                      ))}
+                    </Slider>
+                  }
+                </div>
               </div>
             </div>
             <div className="col-md-6">
@@ -166,18 +169,18 @@ export default function OneProduct({
                 </div>
                 <div className="fw-bold fs-3">size</div>
                 <div className="d-flex mt-3 mb-4">
-                  <div className={`${style.sizes} me-2`}>small</div>
-                  <div className={`${style.sizes} mx-2`}>medium</div>
-                  <div className={`${style.sizes} mx-2`}>Large</div>
-                  <div className={`${style.sizes} mx-2`}>X Large</div>
-                  <div className={`${style.sizes} mx-2`}>XX Large</div>
+                  <div className={`${style.sizes} me-2`}>S</div>
+                  <div className={`${style.sizes} mx-2`}>M</div>
+                  <div className={`${style.sizes} mx-2`}>L</div>
+                  <div className={`${style.sizes} mx-2`}>XL</div>
+                  <div className={`${style.sizes} mx-2`}>XXL</div>
                 </div>
                 <div className="fw-bold fs-3">color</div>
                 <div className="d-flex mt-3 mb-4">
                   <div className={`${style.sizes} me-2`}>
                     <img src={firstImg} />
                   </div>
-                  <div className={`${style.sizes} mx-2`}>
+                  <div className={`${style.sizes} ${style.img} mx-2`}>
                     <img src={seccondImg} />
                   </div>
                 </div>

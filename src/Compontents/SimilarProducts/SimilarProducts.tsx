@@ -11,7 +11,7 @@ export default function SimilarPrducts() {
       <h3>Similar Products</h3>
       <p className=" fs-5">You may like these products also</p>
       <div className="row">
-        <div className="col-md-3 ">
+        <div className="col-lg-3 col-md-6 ">
           <div className="product">
             <div className="image d-flex justify-content-center text-center align-items-center">
               <img src={firstImage} alt="model image" />
@@ -39,7 +39,7 @@ export default function SimilarPrducts() {
             </div>
           </div>
         </div>
-        <div className="col-md-3 ">
+        <div className="col-lg-3 col-md-6 ">
           <div className="product">
             <div className="image d-flex justify-content-center text-center align-items-center">
               <img src={secondImage} alt="model image" />
@@ -67,7 +67,7 @@ export default function SimilarPrducts() {
             </div>
           </div>
         </div>
-        <div className="col-md-3 ">
+        <div className="col-lg-3 col-md-6  ">
           <div className="product">
             <div className="image d-flex justify-content-center text-center align-items-center">
               <img src={thirdImage} alt="model image" />
@@ -95,7 +95,7 @@ export default function SimilarPrducts() {
             </div>
           </div>
         </div>
-        <div className="col-md-3 ">
+        <div className="col-lg-3 col-md-6  ">
           <div className="product">
             <div className="image d-flex justify-content-center text-center align-items-center">
               <img src={forthImage} alt="model image" />

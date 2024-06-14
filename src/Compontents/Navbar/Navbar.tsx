@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./Navbar.module.scss";
-import yeshteryLogo from "../../../public/Images/urn_aaid_sc_US_2186e175-b022-45db-a2f4-c9ba6e4bde30.png";
+import yeshteryLogo from "../../../public/Images/urn_aaid_sc_US_2186e175-b022-45db-a2f4-c9ba6e4bde30 (5).png";
 import burgerIcon from "../../../public/Images/urn_aaid_sc_US_2186e175-b022-45db-a2f4-c9ba6e4bde30 (1).png";
 
 export default function Navbar() {
