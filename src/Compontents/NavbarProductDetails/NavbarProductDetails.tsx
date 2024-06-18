@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import style from "./NavbarProductDetails.module.scss";
 import adidasLogo from "/Images/urn_aaid_sc_US_2186e175-b022-45db-a2f4-c9ba6e4bde30 (3).png";
 

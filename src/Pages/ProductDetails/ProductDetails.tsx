@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import SimilarProducts from "../../Compontents/SimilarProducts/SimilarProducts";
 import OneProduct from "../../Compontents/OneProduct/OneProduct";
 import Filteration from "../../Compontents/Filtertion/Filteration";

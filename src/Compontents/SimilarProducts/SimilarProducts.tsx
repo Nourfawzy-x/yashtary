@@ -1,4 +1,3 @@
-import React from "react";
 import firstImage from "/Images/Group 575.png";
 import secondImage from "/Images/Group 583.png";
 import thirdImage from "/Images/Group 589.png";

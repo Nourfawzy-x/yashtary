@@ -1,4 +1,3 @@
-import React from "react";
 import yeshteryLogo from "../../../public/Images/urn_aaid_sc_US_2186e175-b022-45db-a2f4-c9ba6e4bde30 (2).png";
 
 export default function Footer() {

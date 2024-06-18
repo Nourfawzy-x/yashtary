@@ -1,4 +1,3 @@
-import React from "react";
 import style from "./Filteration.module.scss";
 
 export default function Filteration() {
@@ -39,7 +38,6 @@ export default function Filteration() {
             id="exampleModalToggle"
             aria-hidden="true"
             aria-labelledby="exampleModalToggleLabel"
-            tabindex="-1"
           >
             <div className="modal-dialog modal-dialog-centered">
               <div className="modal-content">

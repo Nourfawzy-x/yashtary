@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import firstImg from "../../../public/Images/urn_aaid_sc_US_2186e175-b022-45db-a2f4-c9ba6e4bde30 (4).png";
 import seccondImg from "../../../public/Images/urn_aaid_sc_US_2186e175-b022-45db-a2f4-c9ba6e4bde30.png";
 import Slider from "react-slick";
+
 interface Product {
   id: number;
   name: string;

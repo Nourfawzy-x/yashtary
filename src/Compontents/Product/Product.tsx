@@ -1,8 +1,6 @@
-import React, { useState } from "react";
 import { getProducts } from "../../services/ProductsService";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
-import ProductDetails from "../../Pages/ProductDetails/ProductDetails";
 
 export default function Product() {
   let { isLoading, data } = useQuery("products", getProducts);
